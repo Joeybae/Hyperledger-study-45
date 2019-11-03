@@ -4,6 +4,8 @@
 
 출처 : http://dudmy.net/javascript/2015/11/16/javascript-sort/
 
+출처: https://minaminaworld.tistory.com/11 [미나미 블로그]
+
 1. 문자정렬
 
         var fruit = ['orange', 'apple', 'banana'];
@@ -62,3 +64,34 @@
             return b[sortingField] - a[sortingField];
             // 44, 25, 21, 13
         });
+
+4. 날짜로 정렬
+
+        var data = [
+            { '날짜': "2012-11-14", '학년': 3, '점수': 200, },
+            { '날짜': "2013-11-14", '학년': 1, '점수': 300, },
+            { '날짜': "2017-11-14", '학년': 2, '점수': 90, },
+            { '날짜': "2018-11-14", '학년': 2, '점수': 90, },
+            { '날짜': "2019-11-14", '학년': 2, '점수': 90, },
+            { '날짜': "2020-11-14", '학년': 2, '점수': 90, },
+            { '날짜': "2021-11-31", '학년': 3, '점수': 200, },
+            { '날짜': "2023-11-01", '학년': 2, '점수': 190, },
+            { '날짜': "2002-11-14", '학년': 2, '점수': 90, },
+            { '날짜': "2010-11-14", '학년': 2, '점수': 190, },
+            { '날짜': "2008-11-14", '학년': 2, '점수': 90, },
+            { '날짜': "2009-11-14", '학년': 1, '점수': 100, }
+        ];
+        console.log(data.sort(date_ascending)); // 오름차순
+        function date_ascending(a, b) {
+        var dateA = new Date(a['날짜']).getTime();
+        var dateB = new Date(b['날짜']).getTime();
+        return dateA > dateB ? 1 : -1;
+        };
+
+        console.log(data.sort(date_descending)) // 내림차순
+
+        function date_descending(a, b) {
+        var dateA = new Date(a['날짜']).getTime();
+        var dateB = new Date(b['날짜']).getTime();
+        return dateA < dateB ? 1 : -1;
+        };
