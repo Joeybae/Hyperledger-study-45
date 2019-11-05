@@ -95,3 +95,32 @@
         var dateB = new Date(b['날짜']).getTime();
         return dateA < dateB ? 1 : -1;
         };
+
+5. 문자와 숫자 동시 정리
+
+        <html>
+          <script>
+            var vars = ['1','2','3','11','12','13','a','c','b'];
+            var softfunc = function(a,b){
+
+              var _a = parseInt(a);
+              if(isNaN(_a)){
+                _a = a.charCodeAt(0)+9999;
+              }
+
+              var _b = parseInt(b);
+              if(isNaN(_b)){
+                _b = b.charCodeAt(0)+9999;
+              }
+
+              if(_a > _b){
+                return 1;
+              } else if(_a < _b){
+                return -1;
+              } else{
+                return 0;
+              }
+            }
+            document.write(vars.sort(softfunc));
+          </script>
+        </html>
